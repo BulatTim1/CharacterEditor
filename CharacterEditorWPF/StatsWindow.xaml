@@ -30,7 +30,7 @@
         <TextBox x:Name="dexterityBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" TextChanged="dexterityBox_TextChanged"/>
         <TextBox x:Name="constitutionBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" TextChanged="constitutionBox_TextChanged"/>
         <TextBox x:Name="intelligenceBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" TextChanged="intelligenceBox_TextChanged"/>
-        <TextBox x:Name="expBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" TextChanged="expBox_TextChanged"/>
+        <TextBox IsReadOnly="True" x:Name="expBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" TextChanged="expBox_TextChanged"/>
         <Button x:Name="strengthPlus" Grid.Column="1" Content="+" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,2,0"/>
         <Button x:Name="dexterityPlus" Content="+" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,2,0"/>
         <Button x:Name="constitutionPlus" Content="+" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,2,0"/>

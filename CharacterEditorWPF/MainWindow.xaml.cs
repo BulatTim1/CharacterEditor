@@ -94,12 +94,10 @@ namespace CharacterEditorWPF
             //context.AddCharacterToDb(char3);
             //UpdateCharacters();
 
-            this.Hide();
+            this.IsEnabled = false;
             var battleWindow = new BattleWindow();
-            if (battleWindow.ShowDialog() != null)
-            {
-                this.Show();
-            }
+            battleWindow.ShowDialog();
+            this.IsEnabled = true;
         }
 
         private void listCharacters_SelectionChanged(object sender, SelectionChangedEventArgs e)

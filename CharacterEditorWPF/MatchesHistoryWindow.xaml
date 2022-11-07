@@ -13,9 +13,10 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="matchesList">
+        <ListView x:Name="matchesList" SelectionChanged="matchesList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Match ID" DisplayMemberBinding="{Binding Id}"/>
@@ -23,23 +24,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="matchTeam1">
+        <ListView x:Name="matchTeam1" Grid.Column="1" SelectionChanged="matchTeam_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Level" DisplayMemberBinding="{Binding Level.Value}"/>
-                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="ClassName" DisplayMemberBinding="{Binding ClassName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="matchTeam2">
+        <ListView x:Name="matchTeam2" Grid.Column="2" SelectionChanged="matchTeam_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Level" DisplayMemberBinding="{Binding Level.Value}"/>
-                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="ClassName" DisplayMemberBinding="{Binding ClassName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="resultLabel"></Label>
     </Grid>
 </Window>

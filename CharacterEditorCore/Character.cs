@@ -25,38 +25,49 @@ namespace CharacterEditorCore
         }
         
         [BsonElement("_t")]
-        public string ClassName;
+        public string ClassName
+        {
+            get;
+            set;
+        }
         
         private Characteristics _strength;
         
         public Characteristics Strength
         {
             get {
-                var fullStr = new Characteristics(_strength.MinValue, _strength.MaxValue, _strength.Value);
+                return _strength;
+            }
+            set
+            {
+                _strength = value;
+            }
+        }
+        public double FullStrength
+        {
+            get 
+            {
+                double fullStr = _strength.Value;
                 if (HeadArmor != null)
                 {
-                    fullStr.Value += HeadArmor.Bonus.StrBonus;
+                    fullStr += HeadArmor.Bonus.StrBonus;
                 }
                 if (ChestArmor != null)
                 {
-                    fullStr.Value += ChestArmor.Bonus.StrBonus;
+                    fullStr += ChestArmor.Bonus.StrBonus;
                 }
                 if (Weapon != null)
                 {
-                    fullStr.Value += Weapon.Bonus.StrBonus;
+                    fullStr += Weapon.Bonus.StrBonus;
                 }
                 foreach (var ability in Abilities)
                 {
                     if (ability.Bonus != null)
                     {
-                        fullStr.Value += ability.Bonus.StrBonus;
+                        fullStr += ability.Bonus.StrBonus;
                     }
                 }
-                return fullStr; 
-            }
-            set
-            {
-                _strength = value;
+                return fullStr;
             }
         }
         
@@ -71,31 +82,38 @@ namespace CharacterEditorCore
         {
             get
             {
-                var fullDex = new Characteristics(_dexterity.MinValue, _dexterity.MaxValue, _dexterity.Value);
+                return _dexterity;
+            }
+            set
+            {
+                _dexterity = value;
+            }
+        }
+        public double FullDexterity
+        {
+            get
+            {
+                double fullDex = _dexterity.Value;
                 if (HeadArmor != null)
                 {
-                    fullDex.Value += HeadArmor.Bonus.DexBonus;
+                    fullDex += HeadArmor.Bonus.DexBonus;
                 }
                 if (ChestArmor != null)
                 {
-                    fullDex.Value += ChestArmor.Bonus.DexBonus;
+                    fullDex += ChestArmor.Bonus.DexBonus;
                 }
                 if (Weapon != null)
                 {
-                    fullDex.Value += Weapon.Bonus.DexBonus;
+                    fullDex += Weapon.Bonus.DexBonus;
                 }
                 foreach (var ability in Abilities)
                 {
                     if (ability.Bonus != null)
                     {
-                        fullDex.Value += ability.Bonus.DexBonus;
+                        fullDex += ability.Bonus.DexBonus;
                     }
                 }
-                return fullDex; 
-            }
-            set
-            {
-                _dexterity = value;
+                return fullDex;
             }
         }
         
@@ -110,31 +128,39 @@ namespace CharacterEditorCore
         {
             get
             {
-                var fullCon = new Characteristics(_constitution.MinValue, _constitution.MaxValue, _constitution.Value);
+                return _constitution;
+            }
+            set
+            {
+                _constitution = value;
+            }
+        }
+
+        public double FullConstitution
+        {
+            get
+            {
+                double fullCon = _constitution.Value;
                 if (HeadArmor != null)
                 {
-                    fullCon.Value += HeadArmor.Bonus.ConBonus;
+                    fullCon += HeadArmor.Bonus.ConBonus;
                 }
                 if (ChestArmor != null)
                 {
-                    fullCon.Value += ChestArmor.Bonus.ConBonus;
+                    fullCon += ChestArmor.Bonus.ConBonus;
                 }
                 if (Weapon != null)
                 {
-                    fullCon.Value += Weapon.Bonus.ConBonus;
+                    fullCon += Weapon.Bonus.ConBonus;
                 }
                 foreach (var ability in Abilities)
                 {
                     if (ability.Bonus != null)
                     {
-                        fullCon.Value += ability.Bonus.ConBonus;
+                        fullCon += ability.Bonus.ConBonus;
                     }
                 }
                 return fullCon;
-            }
-            set
-            {
-                _constitution = value;
             }
         }
 
@@ -149,32 +175,42 @@ namespace CharacterEditorCore
         {
             get
             {
-                var fullInt = new Characteristics(_intelligence.MinValue, _intelligence.MaxValue, _intelligence.Value);
-                if (HeadArmor != null)
-                {
-                    fullInt.Value += HeadArmor.Bonus.IntBonus;
-                }
-                if (ChestArmor != null)
-                {
-                    fullInt.Value += ChestArmor.Bonus.IntBonus;
-                }
-                if (Weapon != null)
-                {
-                    fullInt.Value += Weapon.Bonus.IntBonus;
-                }
-                foreach (var ability in Abilities)
-                {
-                    if (ability.Bonus != null)
-                    {
-                        fullInt.Value += ability.Bonus.IntBonus;
-                    }
-                }
-                return fullInt; }
+                return _intelligence;
+            }
             set
             {
                 _intelligence = value;
             }
         }
+        public double FullIntelligence
+        {
+            get
+            {
+                double fullInt = _intelligence.Value;
+                if (HeadArmor != null)
+                {
+                    fullInt += HeadArmor.Bonus.IntBonus;
+                }
+                if (ChestArmor != null)
+                {
+                    fullInt += ChestArmor.Bonus.IntBonus;
+                }
+                if (Weapon != null)
+                {
+                    fullInt += Weapon.Bonus.IntBonus;
+                }
+                foreach (var ability in Abilities)
+                {
+                    if (ability.Bonus != null)
+                    {
+                        fullInt += ability.Bonus.IntBonus;
+                    }
+                }
+                return fullInt;
+            }
+        }
+
+
         private Level _level;
         
         public Level Level

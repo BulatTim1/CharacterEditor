@@ -70,19 +70,19 @@ namespace CharacterEditorWPF
         {
             if (tempItem != null && (tempItem.Requires == null || tempItem.Requires.CheckRequirements(tempChar)))
             {
-                if (tempItem.Type == "HeadArmor")
+                if (tempItem.Type == "HeadArmor" && tempChar.HeadArmor == null)
                 {
                     tempChar.HeadArmor = tempItem;
                     tempChar.Inventory.Remove(tempItem);
                     tempItem = null;
                 }
-                else if (tempItem.Type == "ChestArmor")
+                else if (tempItem.Type == "ChestArmor" && tempChar.ChestArmor == null)
                 {
                     tempChar.ChestArmor = tempItem;
                     tempChar.Inventory.Remove(tempItem);
                     tempItem = null;
                 }
-                else if (tempItem.Type == "Weapon")
+                else if (tempItem.Type == "Weapon" && tempChar.Weapon == null)
                 {
                     tempChar.Weapon = tempItem;
                     tempChar.Inventory.Remove(tempItem);

@@ -167,7 +167,8 @@ namespace CharacterEditorWPF
         {
             try
             {
-                //TODO: some error
+                //TODO: then decrease level and strength and some another characteristics
+                //cause a bug when strengthBox = 27 and Strength.Value = 27 but Strength.MinValue = 30 and its recurses
                 if (strengthBox.Text != "0")
                 {
                     strengthBox.Text = Math.Min(Math.Max(int.Parse(strengthBox.Text), tempChar.Strength.MinValue),

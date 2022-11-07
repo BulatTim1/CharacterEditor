@@ -21,7 +21,7 @@ namespace CharacterEditorWPF
     /// </summary>
     public partial class BattleWindow : Window
     {
-        static MatchesContext mathcContext = new MatchesContext();
+        static MatchesContext matchContext = new MatchesContext();
         static CharacterEditorContext context = new CharacterEditorContext();
         List<Character> characters;
         List<Character> charactersListCB;
@@ -35,32 +35,44 @@ namespace CharacterEditorWPF
                 team1char3CB, team1char4CB, team1char5CB, team1char6CB,
                 team2char1CB, team2char2CB, team2char3CB, team2char4CB,
                 team2char5CB, team2char6CB};
+            Update_ComboBoxes();
+        }
 
-            foreach(var cb in comboBoxes)
+        private bool updateFlag = true;
+        private void Update_ComboBoxes()
+        {
+            updateFlag = true;
+            foreach (var cb in comboBoxes)
             {
-                foreach (var item in characters)
+                int i = cb.SelectedIndex;
+                cb.Items.Clear();
+                foreach (var item in charactersListCB)
                 {
                     cb.Items.Add(item);
                 }
                 cb.Items.Refresh();
+                cb.SelectedIndex = i;
             }
+            updateFlag = false;
         }
 
+        private Character tempChar;
+        private string tempCBName;
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            charactersListCB = new List<Character>(characters);
-            foreach(var cb in comboBoxes)
+            if (!updateFlag)
             {
-                if(cb.SelectedIndex != -1)
-                {
-                    charactersListCB.Remove((Character)cb.SelectedItem);
-                }
+                //var cb = (ComboBox)sender;
+                //if (tempChar != null && cb.Name == tempCBName)
+                //{
+                //    charactersListCB.Add(tempChar);
+                //    tempChar = null;
+                //    tempCBName = "";
+                //}
+                //charactersListCB.Remove((Character)cb.SelectedItem);
+                Update_ComboBoxes();
+                BalanceCheck();
             }
-            foreach(var cb in comboBoxes)
-            {
-                cb.Items.Refresh();
-            }
-            BalanceCheck();
         }
 
         private void BalanceCheck()
@@ -113,43 +125,45 @@ namespace CharacterEditorWPF
                 }
             }
 
-            if (lvlTeam1 > lvlTeam2)
+            if (Math.Abs(lvlTeam1 - lvlTeam2) <= 1)
             {
-                if (countWarriorsTeam1 > countWarriorsTeam2)
+                if (Math.Abs(countWarriorsTeam1 - countWarriorsTeam2) == 0)
                 {
-                    if (countRoguesTeam1 > countRoguesTeam2)
+                    if (Math.Abs(countRoguesTeam1 - countRoguesTeam2) == 0)
                     {
-                        if (countWizardsTeam1 > countWizardsTeam2)
+                        if (Math.Abs(countWizardsTeam1 - countWizardsTeam2) == 0)
                         {
-                            MessageBox.Show("Team 1 is balanced");
+                            balanceLabel.Content = "Teams are balanced";
                             startBtn.IsEnabled = true;
                         }
                         else
                         {
-                            MessageBox.Show("Team 2 is not balanced");
+                            balanceLabel.Content = "Wizards need to be balanced";
                             startBtn.IsEnabled = false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Team 2 is not balanced");
+                        balanceLabel.Content = "Rogues need to be balanced";
                         startBtn.IsEnabled = false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Team 2 is not balanced");
+                    balanceLabel.Content = "Warriors need to be balanced";
                     startBtn.IsEnabled = false;
                 }
             }
             else
             {
-                MessageBox.Show("Team 2 is not balanced");
+                balanceLabel.Content = "Level not balanced";
                 startBtn.IsEnabled = false;
             }
         }
         private void clear_Click(object sender, RoutedEventArgs e)
         {
+            charactersListCB = new List<Character>(characters);
+            Update_ComboBoxes();
             foreach (var cb in comboBoxes)
             {
                 cb.SelectedIndex = -1;
@@ -175,21 +189,31 @@ namespace CharacterEditorWPF
                 }
             }
                 
-            mathcContext.CreateMatch(
+            matchContext.CreateMatch(
             new Match()
             {
                 Team1 = team1,
                 Team2 = team2,
-                Date = DateTime.Now
+                Date = DateTime.Now,
+                Result = new Random().Next(0, 3)
             });
             clear_Click(sender, e);
         }
         private void history_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            MatchesHistoryWindow historyWindow = new MatchesHistoryWindow();
-            historyWindow.ShowDialog();
-            Show();
+            this.IsEnabled = false;
+            new MatchesHistoryWindow().ShowDialog();
+            this.IsEnabled = true;
+        }
+
+        private void ComboBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+        //    var cb = (ComboBox)sender;
+        //    if (cb.SelectedIndex != -1)
+        //    {
+        //        tempChar = (Character)cb.SelectedItem;
+        //        tempCBName = cb.Name;
+        //    }
         }
     }
 }

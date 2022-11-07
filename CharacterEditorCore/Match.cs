@@ -19,13 +19,21 @@ namespace CharacterEditorCore
             set => _id = value;
         }
 
-        private DateTime _date;
         public DateTime Date { get; set; }
 
-        private List<Character> _team1;
         public List<Character> Team1 { get; set; }
 
-        private List<Character> _team2;
         public List<Character> Team2 { get; set; }
+
+        [BsonIgnoreIfNull]
+        public int Result
+        {
+            //-1 - error
+            //0 - draw
+            //1 - team1
+            //2 - team2
+            get;
+            set;
+        }
     }
 }
