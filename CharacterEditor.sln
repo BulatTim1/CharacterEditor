@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterEditorWPF", ".\CharacterEditorWPF\CharacterEditorWPF.csproj", "{605ADE6F-FE9F-4818-87B3-499243AB6E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterEditorMongoHelper", ".\CharacterEditorMongoHelper\CharacterEditorMongoHelper.csproj", "{BA44370B-215A-4384-B7B0-C845E3D86553}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B30D551B-3107-48D3-B532-C8FDE75A9D6A} = {B30D551B-3107-48D3-B532-C8FDE75A9D6A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterEditorCore", ".\CharacterEditorCore\CharacterEditorCore.csproj", "{B30D551B-3107-48D3-B532-C8FDE75A9D6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{605ADE6F-FE9F-4818-87B3-499243AB6E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{605ADE6F-FE9F-4818-87B3-499243AB6E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{605ADE6F-FE9F-4818-87B3-499243AB6E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{605ADE6F-FE9F-4818-87B3-499243AB6E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA44370B-215A-4384-B7B0-C845E3D86553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA44370B-215A-4384-B7B0-C845E3D86553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA44370B-215A-4384-B7B0-C845E3D86553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA44370B-215A-4384-B7B0-C845E3D86553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30D551B-3107-48D3-B532-C8FDE75A9D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30D551B-3107-48D3-B532-C8FDE75A9D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30D551B-3107-48D3-B532-C8FDE75A9D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30D551B-3107-48D3-B532-C8FDE75A9D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6FDCC6A-4193-4F76-BC5F-FE2048B3F42A}
+	EndGlobalSection
+EndGlobal

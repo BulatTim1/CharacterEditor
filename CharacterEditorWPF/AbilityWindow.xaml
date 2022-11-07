@@ -1,0 +1,48 @@
+﻿<Window x:Class="CharacterEditorWPF.AbilityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CharacterEditorWPF"
+        mc:Ignorable="d"
+        Title="Stats" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="saveBtn" Grid.Column="2" Content="Save" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="Save_Click"/>
+        <Button x:Name="resetBtn" Grid.Column="1" Content="Reset" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="Reset_Click"/>
+        <ListView x:Name="abilitiesList" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" SelectionChanged="abilitiesList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Level Required" DisplayMemberBinding="{Binding MinLevel}" Width="90"/>
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding Bonus.StrBonus}" Width="30"/>
+                    <GridViewColumn Header="Dex" DisplayMemberBinding="{Binding Bonus.DexBonus}" Width="30"/>
+                    <GridViewColumn Header="Int" DisplayMemberBinding="{Binding Bonus.IntBonus}" Width="30"/>
+                    <GridViewColumn Header="Con" DisplayMemberBinding="{Binding Bonus.ConBonus}" Width="30"/>
+                    <GridViewColumn Header="HP" DisplayMemberBinding="{Binding Bonus.HpBonus}" Width="30"/>
+                    <GridViewColumn Header="Mana" DisplayMemberBinding="{Binding Bonus.ManaBonus}" Width="40"/>
+                    <GridViewColumn Header="M. Attack" DisplayMemberBinding="{Binding Bonus.MDamBonus}" Width="65"/>
+                    <GridViewColumn Header="M. Deffense" DisplayMemberBinding="{Binding Bonus.MDefBonus}" Width="65"/>
+                    <GridViewColumn Header="P. Attack" DisplayMemberBinding="{Binding Bonus.PDamBonus}" Width="65"/>
+                    <GridViewColumn Header="P. Deffense" DisplayMemberBinding="{Binding Bonus.PDefBonus}" Width="65"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Available Points:" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="availablePoints" Grid.Column="1" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="addBtn" Grid.Column="3" Content="Add" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" IsEnabled="False" Click="addBtn_Click"/>
+    </Grid>
+</Window>

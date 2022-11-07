@@ -1,0 +1,49 @@
+﻿<Window x:Class="CharacterEditorWPF.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CharacterEditorWPF"
+        mc:Ignorable="d"
+        Title="Stats" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Strength" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <Label Content="Dexterity" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
+        <Label Content="Constitution" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center"/>
+        <Label Content="Intelligence" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center"/>
+        <Label Content="Experience" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="strengthBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" TextChanged="strengthBox_TextChanged"/>
+        <TextBox x:Name="dexterityBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" TextChanged="dexterityBox_TextChanged"/>
+        <TextBox x:Name="constitutionBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" TextChanged="constitutionBox_TextChanged"/>
+        <TextBox x:Name="intelligenceBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" TextChanged="intelligenceBox_TextChanged"/>
+        <TextBox x:Name="expBox" Grid.Column="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" TextChanged="expBox_TextChanged"/>
+        <Button x:Name="strengthPlus" Grid.Column="1" Content="+" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,2,0"/>
+        <Button x:Name="dexterityPlus" Content="+" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+        <Button x:Name="constitutionPlus" Content="+" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+        <Button x:Name="intelligencePlus" Content="+" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+        <Button x:Name="strengthMinus" Content="-" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Margin="2,0,0,0" Grid.Column="1"/>
+        <Button x:Name="dexterityMinus" Content="-" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" Margin="2,0,0,0" Grid.Column="1"/>
+        <Button x:Name="constitutionMinus" Content="-" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" Margin="2,0,0,0" Grid.Column="1"/>
+        <Button x:Name="intelligenceMinus" Content="-" VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" Margin="2,0,0,0" Grid.Column="1"/>
+        <Button x:Name="addExp1000" Grid.Column="2" Content="Add 1000 exp" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Click="addExp1000_Click"/>
+        <Button x:Name="addExp3000" Grid.Column="3" Content="Add 3000 exp" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Click="addExp3000_Click"/>
+        <Label Grid.Column="2" Content="Available Points" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <Label x:Name="availablePoints" Grid.Column="3" Content="0" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <Button x:Name="saveBtn" Grid.Column="2" Content="Save" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="Save_Click"/>
+        <Button x:Name="resetBtn" Grid.Column="1" Content="Reset" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="Reset_Click"/>
+    </Grid>
+</Window>
